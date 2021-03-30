@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4abab7342f1a41b98f46672bebf7e50c, type: 3}
+  m_Name: Globals
+  m_EditorClassIdentifier: 
+  EnemySpawnPoint: {fileID: 0}
+  EnemyPrefab: {fileID: 1990356845863549092, guid: 2cd65102153508341b1e6cb431800198, type: 3}
+  ArcherTower: {fileID: 1059502961608188, guid: 5dc256dae1ca2eb4eb02bc2f8b894a1b, type: 3}
+  ArcherTowerConstruct: {fileID: 1184927163056602, guid: 60ed5f340bd584048a8a4de49565ebe0, type: 3}
+  CanonTower: {fileID: 1787649280074020, guid: 48a54091141567342bfd0621b9fd5e22, type: 3}
