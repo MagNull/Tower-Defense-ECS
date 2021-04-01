@@ -12,4 +12,10 @@ public class Globals : ScriptableObject
     public GameObject ArcherTower;
     public GameObject ArcherTowerConstruct;
     public GameObject CanonTower;
+
+    [Header("Archer Tower Configs")] 
+    public float ArcherShootDistance;
+    public float ArcherShootDelay;
+    public GameObject ArrowPrefab;
+    public float ArrowSpeed;
 }

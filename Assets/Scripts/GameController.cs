@@ -31,8 +31,6 @@ public class GameController : MonoBehaviour
     private Systems CreateSystems()
     {
         return new Feature("Systems")
-                .Add(new TimerTickSystem(_contexts))
-                
                 .Add(new ViewPositionSystem(_contexts))
                 .Add(new ViewRotationSystem(_contexts))
                 .Add(new MoveSystem(_contexts))
@@ -44,7 +42,16 @@ public class GameController : MonoBehaviour
                 .Add(new BuildSystem(_contexts))
                 .Add(new DemolishSystem(_contexts))
 
+                .Add(new TowerFindTargetSystem(_contexts)) 
+                .Add(new LookAtTargetSystem(_contexts))
+                
+                .Add(new ArcherShootSystem(_contexts))
+                
+                .Add(new DamageSystem(_contexts))
+                
                 .Add(new ShowBuildPanelSystem(_contexts, _buildPanel))
+            
+                .Add(new TimerTickSystem(_contexts))
                 .Add(new DestroySystem(_contexts))
             ;
     }

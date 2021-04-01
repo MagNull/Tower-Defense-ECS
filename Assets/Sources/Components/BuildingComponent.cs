@@ -4,7 +4,7 @@ using UnityEngine;
 [Game]
 public class BuildingComponent : IComponent
 {
-    public BuildingType BuildingType;
+    public TowerType TowerType;
     public GameObject BuildingBase;
     public GameObject Upgrade;
 }

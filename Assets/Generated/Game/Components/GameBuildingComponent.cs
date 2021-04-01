@@ -11,19 +11,19 @@ public partial class GameEntity {
     public BuildingComponent building { get { return (BuildingComponent)GetComponent(GameComponentsLookup.Building); } }
     public bool hasBuilding { get { return HasComponent(GameComponentsLookup.Building); } }
 
-    public void AddBuilding(BuildingType newBuildingType, UnityEngine.GameObject newBuildingBase, UnityEngine.GameObject newUpgrade) {
+    public void AddBuilding(TowerType newTowerType, UnityEngine.GameObject newBuildingBase, UnityEngine.GameObject newUpgrade) {
         var index = GameComponentsLookup.Building;
         var component = (BuildingComponent)CreateComponent(index, typeof(BuildingComponent));
-        component.BuildingType = newBuildingType;
+        component.TowerType = newTowerType;
         component.BuildingBase = newBuildingBase;
         component.Upgrade = newUpgrade;
         AddComponent(index, component);
     }
 
-    public void ReplaceBuilding(BuildingType newBuildingType, UnityEngine.GameObject newBuildingBase, UnityEngine.GameObject newUpgrade) {
+    public void ReplaceBuilding(TowerType newTowerType, UnityEngine.GameObject newBuildingBase, UnityEngine.GameObject newUpgrade) {
         var index = GameComponentsLookup.Building;
         var component = (BuildingComponent)CreateComponent(index, typeof(BuildingComponent));
-        component.BuildingType = newBuildingType;
+        component.TowerType = newTowerType;
         component.BuildingBase = newBuildingBase;
         component.Upgrade = newUpgrade;
         ReplaceComponent(index, component);

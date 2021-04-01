@@ -44,7 +44,7 @@ public class BuildPanel : MonoBehaviour
         _destroyButton.onClick.RemoveAllListeners();
         _archerButton.onClick.AddListener(() =>
         {
-            _contexts.game.CreateEntity().AddBuildCommand(BuildingType.ARCHER, _buildPoint);
+            _contexts.game.CreateEntity().AddBuildCommand(TowerType.ARCHER, _buildPoint);
             gameObject.SetActive(false);
         });
         _destroyButton.onClick.AddListener(() =>

@@ -11,18 +11,18 @@ public partial class GameEntity {
     public BuildCommandComponent buildCommand { get { return (BuildCommandComponent)GetComponent(GameComponentsLookup.BuildCommand); } }
     public bool hasBuildCommand { get { return HasComponent(GameComponentsLookup.BuildCommand); } }
 
-    public void AddBuildCommand(BuildingType newBuildingType, UnityEngine.Transform newBuildPlace) {
+    public void AddBuildCommand(TowerType newTowerType, UnityEngine.Transform newBuildPlace) {
         var index = GameComponentsLookup.BuildCommand;
         var component = (BuildCommandComponent)CreateComponent(index, typeof(BuildCommandComponent));
-        component.BuildingType = newBuildingType;
+        component.TowerType = newTowerType;
         component.BuildPlace = newBuildPlace;
         AddComponent(index, component);
     }
 
-    public void ReplaceBuildCommand(BuildingType newBuildingType, UnityEngine.Transform newBuildPlace) {
+    public void ReplaceBuildCommand(TowerType newTowerType, UnityEngine.Transform newBuildPlace) {
         var index = GameComponentsLookup.BuildCommand;
         var component = (BuildCommandComponent)CreateComponent(index, typeof(BuildCommandComponent));
-        component.BuildingType = newBuildingType;
+        component.TowerType = newTowerType;
         component.BuildPlace = newBuildPlace;
         ReplaceComponent(index, component);
     }

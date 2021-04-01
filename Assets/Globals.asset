@@ -17,3 +17,7 @@ MonoBehaviour:
   ArcherTower: {fileID: 1059502961608188, guid: 5dc256dae1ca2eb4eb02bc2f8b894a1b, type: 3}
   ArcherTowerConstruct: {fileID: 1184927163056602, guid: 60ed5f340bd584048a8a4de49565ebe0, type: 3}
   CanonTower: {fileID: 1787649280074020, guid: 48a54091141567342bfd0621b9fd5e22, type: 3}
+  ArcherShootDistance: 20
+  ArcherShootDelay: 1
+  ArrowPrefab: {fileID: 2998864752835874638, guid: 45667ab2fa1bf554aacaf43158b851eb, type: 3}
+  ArrowSpeed: 20

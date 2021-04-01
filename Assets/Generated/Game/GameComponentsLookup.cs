@@ -11,31 +11,39 @@ public static class GameComponentsLookup {
     public const int BuildCommand = 0;
     public const int BuildingClick = 1;
     public const int Building = 2;
-    public const int Demolish = 3;
-    public const int Destroyed = 4;
-    public const int Enemy = 5;
-    public const int Globals = 6;
-    public const int LookAtMovement = 7;
-    public const int Move = 8;
-    public const int Position = 9;
-    public const int Rotation = 10;
-    public const int Timer = 11;
-    public const int View = 12;
+    public const int Collusion = 3;
+    public const int DamageDealer = 4;
+    public const int Demolish = 5;
+    public const int Destroyed = 6;
+    public const int Enemy = 7;
+    public const int Globals = 8;
+    public const int Health = 9;
+    public const int LookAtMovement = 10;
+    public const int Move = 11;
+    public const int Position = 12;
+    public const int Rotation = 13;
+    public const int Shooter = 14;
+    public const int Timer = 15;
+    public const int View = 16;
 
-    public const int TotalComponents = 13;
+    public const int TotalComponents = 17;
 
     public static readonly string[] componentNames = {
         "BuildCommand",
         "BuildingClick",
         "Building",
+        "Collusion",
+        "DamageDealer",
         "Demolish",
         "Destroyed",
         "Enemy",
         "Globals",
+        "Health",
         "LookAtMovement",
         "Move",
         "Position",
         "Rotation",
+        "Shooter",
         "Timer",
         "View"
     };
@@ -44,14 +52,18 @@ public static class GameComponentsLookup {
         typeof(BuildCommandComponent),
         typeof(BuildingClickComponent),
         typeof(BuildingComponent),
+        typeof(CollusionComponent),
+        typeof(DamageDealerComponent),
         typeof(DemolishComponent),
         typeof(DestroyedComponent),
         typeof(EnemyComponent),
         typeof(GlobalsComponent),
+        typeof(HealthComponent),
         typeof(LookAtMovementComponent),
         typeof(MoveComponent),
         typeof(PositionComponent),
         typeof(RotationComponent),
+        typeof(ShooterComponent),
         typeof(TimerComponent),
         typeof(ViewComponent)
     };

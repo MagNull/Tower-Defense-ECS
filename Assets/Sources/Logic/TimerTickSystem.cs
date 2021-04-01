@@ -22,11 +22,24 @@ namespace Sources.Logic
                 if (tick <= 0)
                 {
                     entity.timer.Action.Invoke();
-                    entity.ReplaceTimer(0, null);
+                    if (entity.timer.IsLoop)
+                    {
+                        entity.ReplaceTimer(entity.timer.StartTick,
+                            entity.timer.StartTick,
+                            entity.timer.Action,
+                            entity.timer.IsLoop);
+                    }
+                    else
+                    {
+                        entity.RemoveTimer();
+                    }
                 }
                 else
                 {
-                    entity.ReplaceTimer(tick, entity.timer.Action);
+                    entity.ReplaceTimer(entity.timer.StartTick,
+                        tick, 
+                        entity.timer.Action,
+                        entity.timer.IsLoop);
                 }
             }
         }

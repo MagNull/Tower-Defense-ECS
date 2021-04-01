@@ -4,6 +4,6 @@ using UnityEngine;
 [Game]
 public class BuildCommandComponent : IComponent
 {
-    public BuildingType BuildingType;
+    public TowerType TowerType;
     public Transform BuildPlace;
 }

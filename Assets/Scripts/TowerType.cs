@@ -1,4 +1,4 @@
-﻿public enum BuildingType
+﻿public enum TowerType
 {
     ARCHER,
     CANON,
