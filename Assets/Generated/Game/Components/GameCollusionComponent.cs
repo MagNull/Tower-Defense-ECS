@@ -11,19 +11,19 @@ public partial class GameEntity {
     public CollusionComponent collusion { get { return (CollusionComponent)GetComponent(GameComponentsLookup.Collusion); } }
     public bool hasCollusion { get { return HasComponent(GameComponentsLookup.Collusion); } }
 
-    public void AddCollusion(GameEntity newEntity1, GameEntity newEntity2) {
+    public void AddCollusion(GameEntity newCollusionEmitter, GameEntity newOther) {
         var index = GameComponentsLookup.Collusion;
         var component = (CollusionComponent)CreateComponent(index, typeof(CollusionComponent));
-        component.Entity1 = newEntity1;
-        component.Entity2 = newEntity2;
+        component.CollusionEmitter = newCollusionEmitter;
+        component.Other = newOther;
         AddComponent(index, component);
     }
 
-    public void ReplaceCollusion(GameEntity newEntity1, GameEntity newEntity2) {
+    public void ReplaceCollusion(GameEntity newCollusionEmitter, GameEntity newOther) {
         var index = GameComponentsLookup.Collusion;
         var component = (CollusionComponent)CreateComponent(index, typeof(CollusionComponent));
-        component.Entity1 = newEntity1;
-        component.Entity2 = newEntity2;
+        component.CollusionEmitter = newCollusionEmitter;
+        component.Other = newOther;
         ReplaceComponent(index, component);
     }
 

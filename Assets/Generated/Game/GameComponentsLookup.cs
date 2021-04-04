@@ -16,17 +16,22 @@ public static class GameComponentsLookup {
     public const int Demolish = 5;
     public const int Destroyed = 6;
     public const int Enemy = 7;
-    public const int Globals = 8;
-    public const int Health = 9;
-    public const int LookAtMovement = 10;
-    public const int Move = 11;
-    public const int Position = 12;
-    public const int Rotation = 13;
-    public const int Shooter = 14;
-    public const int Timer = 15;
-    public const int View = 16;
+    public const int EnemySpawner = 8;
+    public const int Globals = 9;
+    public const int Health = 10;
+    public const int LookAtMovement = 11;
+    public const int Move = 12;
+    public const int NormalClick = 13;
+    public const int Player = 14;
+    public const int Position = 15;
+    public const int Rotation = 16;
+    public const int Shooter = 17;
+    public const int StaticViews = 18;
+    public const int Timer = 19;
+    public const int UIElements = 20;
+    public const int View = 21;
 
-    public const int TotalComponents = 17;
+    public const int TotalComponents = 22;
 
     public static readonly string[] componentNames = {
         "BuildCommand",
@@ -37,14 +42,19 @@ public static class GameComponentsLookup {
         "Demolish",
         "Destroyed",
         "Enemy",
+        "EnemySpawner",
         "Globals",
         "Health",
         "LookAtMovement",
         "Move",
+        "NormalClick",
+        "Player",
         "Position",
         "Rotation",
         "Shooter",
+        "StaticViews",
         "Timer",
+        "UIElements",
         "View"
     };
 
@@ -57,14 +67,19 @@ public static class GameComponentsLookup {
         typeof(DemolishComponent),
         typeof(DestroyedComponent),
         typeof(EnemyComponent),
+        typeof(EnemySpawnerComponent),
         typeof(GlobalsComponent),
         typeof(HealthComponent),
         typeof(LookAtMovementComponent),
         typeof(MoveComponent),
+        typeof(NormalClickComponent),
+        typeof(PlayerComponent),
         typeof(PositionComponent),
         typeof(RotationComponent),
         typeof(ShooterComponent),
+        typeof(StaticViewsComponent),
         typeof(TimerComponent),
+        typeof(UIElementsComponent),
         typeof(ViewComponent)
     };
 }

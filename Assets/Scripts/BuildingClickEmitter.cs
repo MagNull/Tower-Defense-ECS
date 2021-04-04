@@ -6,6 +6,7 @@ using UnityEngine;
 public class BuildingClickEmitter : MonoBehaviour
 {
     [SerializeField] private bool _isBuilding;
+    [SerializeField] private bool _isBuildPlace;
     private Contexts _contexts;
 
     private void Start()
@@ -15,6 +16,8 @@ public class BuildingClickEmitter : MonoBehaviour
     
     private void OnMouseDown()
     {
-        _contexts.game.CreateEntity().AddBuildingClick(transform, Input.mousePosition, _isBuilding);
+        if (_isBuildPlace || _isBuilding) _contexts.game.CreateEntity().AddBuildingClick(transform, Input.mousePosition, _isBuilding);
+        else _contexts.game.CreateEntity().isNormalClick = true;
+
     }
 }

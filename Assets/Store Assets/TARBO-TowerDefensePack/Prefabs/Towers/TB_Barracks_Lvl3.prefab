@@ -173,6 +173,7 @@ GameObject:
   - component: {fileID: 4275931600144936}
   - component: {fileID: 33824174446782692}
   - component: {fileID: 23898721843821462}
+  - component: {fileID: 1609459394151329839}
   m_Layer: 0
   m_Name: TB_Barracks_Lvl3
   m_TagString: Untagged
@@ -189,7 +190,7 @@ Transform:
   m_GameObject: {fileID: 1651372624995450}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.6, y: 1.6, z: 1.6}
   m_Children:
   - {fileID: 4828186375003834}
   - {fileID: 4568641514801624}
@@ -223,7 +224,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c717fb89e24ff384785039c0f1169eee, type: 2}
+  - {fileID: 2100000, guid: eb25a30c052643a40b42f778673de011, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -245,3 +246,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1609459394151329839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651372624995450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26fdbb69eabb07b4e9fc0101471f2af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isBuilding: 0
+  _isBuildPlace: 0

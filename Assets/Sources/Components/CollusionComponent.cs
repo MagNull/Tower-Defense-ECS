@@ -3,6 +3,6 @@
 [Game]
 public class CollusionComponent : IComponent
 {
-    public GameEntity Entity1;
-    public GameEntity Entity2;
+    public GameEntity CollusionEmitter;
+    public GameEntity Other;
 }

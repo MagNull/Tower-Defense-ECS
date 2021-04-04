@@ -9,33 +9,49 @@ public class BuildPanel : MonoBehaviour
     [SerializeField] private Button _destroyButton;
     private Transform _buildPoint;
     private Contexts _contexts;
+    private RectTransform _rectTransform;
+    
 
     public void ShowPanel(BuildingClickComponent component)
     {
-        if(_buildPoint) _buildPoint.GetComponent<Collider>().enabled = true;
-        _buildPoint = component.BuildingPlace;
-        _buildPoint.GetComponent<Collider>().enabled = false;
-        
-        if (component.IsBuilding)
+        if (!gameObject.activeSelf 
+            || !RectTransformUtility.RectangleContainsScreenPoint(_rectTransform, Input.mousePosition))
         {
-            _archerButton.gameObject.SetActive(false);
-            _upgradeButton.gameObject.SetActive(true);
-            _destroyButton.gameObject.SetActive(true);
-        }
-        else
-        {
-            _archerButton.gameObject.SetActive(true);
-            _upgradeButton.gameObject.SetActive(false);
-            _destroyButton.gameObject.SetActive(false);
-        }
+            if(_buildPoint) _buildPoint.GetComponent<Collider>().enabled = true;
+            _buildPoint = component.BuildingPlace;
+            _buildPoint.GetComponent<Collider>().enabled = false;
+
+            if (component.IsBuilding)
+            {
+                _archerButton.gameObject.SetActive(false);
+                _upgradeButton.gameObject.SetActive(true);
+                _destroyButton.gameObject.SetActive(true);
+            }
+            else
+            {
+                _archerButton.gameObject.SetActive(true);
+                _upgradeButton.gameObject.SetActive(false);
+                _destroyButton.gameObject.SetActive(false);
+            }
         
-        gameObject.SetActive(true);
-        transform.position = component.CursorPosition;
+            gameObject.SetActive(true);
+            transform.position = component.CursorPosition;
+        }
+    }
+
+    public void HidePanel()
+    {
+        if (!RectTransformUtility.RectangleContainsScreenPoint(_rectTransform, Input.mousePosition))
+        {
+            if(_buildPoint) _buildPoint.GetComponent<Collider>().enabled = true;
+            gameObject.SetActive(false);
+        }
     }
 
     private void Awake()
     {
         _contexts = Contexts.sharedInstance;
+        _rectTransform = GetComponent<RectTransform>();
     }
 
     private void OnEnable()

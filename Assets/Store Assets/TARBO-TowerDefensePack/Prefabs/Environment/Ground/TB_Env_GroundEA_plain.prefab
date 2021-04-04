@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4460009375727956}
   - component: {fileID: 33127790689216198}
   - component: {fileID: 23370976035486694}
+  - component: {fileID: 9076974087405602921}
   m_Layer: 0
   m_Name: TB_Env_GroundEA_plain
   m_TagString: Untagged
@@ -81,3 +82,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &9076974087405602921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002465828442168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26fdbb69eabb07b4e9fc0101471f2af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isBuilding: 0
+  _isBuildPlace: 0

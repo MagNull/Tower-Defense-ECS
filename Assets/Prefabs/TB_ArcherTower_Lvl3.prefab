@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 33420829639229698}
   - component: {fileID: 23082130259427812}
   - component: {fileID: 6826667295147032712}
-  m_Layer: 0
+  - component: {fileID: 7513652448185798136}
+  m_Layer: 3
   m_Name: TB_ArcherTower_Lvl3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c717fb89e24ff384785039c0f1169eee, type: 2}
+  - {fileID: 2100000, guid: b2673566e99346e4ea8cff329f970a5e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -96,6 +97,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isBuilding: 1
+  _isBuildPlace: 0
+--- !u!65 &7513652448185798136
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059502961608188}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.4848967, y: 6.3612404, z: 6.7564983}
+  m_Center: {x: 0, y: 3.16074, z: -0.13580084}
 --- !u!1 &75470480383973675
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,7 +120,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3061482527891691959}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ShootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +151,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3616494675425632915}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Archer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +184,7 @@ GameObject:
   - component: {fileID: 6247587386406009504}
   - component: {fileID: 6254123149593721390}
   - component: {fileID: 6262414256278023580}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Archer Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +235,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d535adbf4c9fa8c46a8f5dc560738a06, type: 2}
+  - {fileID: 2100000, guid: ed9f29ddef3dac64dbba787a64fa05ba, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -253,7 +268,7 @@ GameObject:
   - component: {fileID: 6245487159325164856}
   - component: {fileID: 6252344117906024708}
   - component: {fileID: 6264124084878226562}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TB_Soldier_Archer_Leg_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -334,7 +349,7 @@ GameObject:
   - component: {fileID: 6245794799714210328}
   - component: {fileID: 6252360009577578562}
   - component: {fileID: 6262742533660081386}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TB_Soldier_Archer_Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -415,7 +430,7 @@ GameObject:
   - component: {fileID: 6247087610662013254}
   - component: {fileID: 6253958714375658642}
   - component: {fileID: 6262363495961095262}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TB_Soldier_Archer_Leg_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
