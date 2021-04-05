@@ -26,6 +26,8 @@ namespace Sources.Logic.EnemyLogic
 		{
 			foreach (var e in entities)
 			{
+				_contexts.game.globals.value.KillCount++;
+				_contexts.game.uIElements.KillCountText.text = _contexts.game.globals.value.KillCount.ToString();
 				e.isDestroyed = true;
 			}
 		}

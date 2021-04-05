@@ -27,33 +27,36 @@ namespace Sources.Logic.TowerLogic
 		{
 			foreach (var e in entities)
 			{
-				var buildingEntity = _contexts.game.CreateEntity();
-				Vector3 position = e.buildCommand.BuildPlace.position;
-				Quaternion rotation = e.buildCommand.BuildPlace.rotation;
-				buildingEntity.AddPosition(position);
-				buildingEntity.AddRotation(rotation);
-				
-				GameObject building = new GameObject("Tower");
-				buildingEntity.AddView(building);
-
-				building.transform.position = position;
-				building.transform.rotation = rotation;
-				
-				BuildTower(e, building, buildingEntity);
-
-				if (building.TryGetComponent(out EntityLink link))
+				if (_contexts.game.playerEntity.playerBalance.Balance - GetCost(e.buildCommand.TowerType) >= 0)
 				{
-					link.Link(buildingEntity);
-				}
-				else
-				{
-					building.AddComponent<EntityLink>().Link(buildingEntity);
-					building.AddComponent<TowerRadiusDrawer>();
-				}
+					var buildingEntity = _contexts.game.CreateEntity();
+					Vector3 position = e.buildCommand.BuildPlace.position;
+					Quaternion rotation = e.buildCommand.BuildPlace.rotation;
+					buildingEntity.AddPosition(position);
+					buildingEntity.AddRotation(rotation);
 				
-				e.buildCommand.BuildPlace.gameObject.SetActive(false);
+					GameObject building = new GameObject("Tower");
+					buildingEntity.AddView(building);
 
+					building.transform.position = position;
+					building.transform.rotation = rotation;
+				
+					BuildTower(e, building, buildingEntity);
+
+					if (building.TryGetComponent(out EntityLink link))
+					{
+						link.Link(buildingEntity);
+					}
+					else
+					{
+						building.AddComponent<EntityLink>().Link(buildingEntity);
+						building.AddComponent<TowerRadiusDrawer>();
+					}
+					_contexts.game.CreateEntity().AddChangeBalance(-buildingEntity.building.Cost);
+					e.buildCommand.BuildPlace.gameObject.SetActive(false);
+				}
 				e.isDestroyed = true;
+				
 			}
 		}
 
@@ -75,8 +78,19 @@ namespace Sources.Logic.TowerLogic
 						globals.ArcherShootDelay);
 				
 					buildingEntity.AddBuilding(e.buildCommand.TowerType, e.buildCommand.BuildPlace.gameObject,
-						new GameObject("Upgrade(TODO)"));
+						new GameObject("Upgrade(TODO)"), globals.ArcherTowerCost);
 					break;
+			}
+		}
+
+		private int GetCost(TowerType type)
+		{
+			switch (type)
+			{
+				case TowerType.ARCHER: return _contexts.game.globals.value.ArcherTowerCost;
+				default:
+					Debug.Log("Not Cost");
+					return 0;
 			}
 		}
 	}

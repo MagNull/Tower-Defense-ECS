@@ -11,32 +11,35 @@ public static class GameComponentsLookup {
     public const int BuildCommand = 0;
     public const int BuildingClick = 1;
     public const int Building = 2;
-    public const int Collusion = 3;
-    public const int DamageDealer = 4;
-    public const int Demolish = 5;
-    public const int Destroyed = 6;
-    public const int Enemy = 7;
-    public const int EnemySpawner = 8;
-    public const int Globals = 9;
-    public const int Health = 10;
-    public const int LookAtMovement = 11;
-    public const int Move = 12;
-    public const int NormalClick = 13;
-    public const int Player = 14;
-    public const int Position = 15;
-    public const int Rotation = 16;
-    public const int Shooter = 17;
-    public const int StaticViews = 18;
-    public const int Timer = 19;
-    public const int UIElements = 20;
-    public const int View = 21;
+    public const int ChangeBalance = 3;
+    public const int Collusion = 4;
+    public const int DamageDealer = 5;
+    public const int Demolish = 6;
+    public const int Destroyed = 7;
+    public const int Enemy = 8;
+    public const int EnemySpawner = 9;
+    public const int Globals = 10;
+    public const int Health = 11;
+    public const int LookAtMovement = 12;
+    public const int Move = 13;
+    public const int NormalClick = 14;
+    public const int PlayerBalance = 15;
+    public const int Player = 16;
+    public const int Position = 17;
+    public const int Rotation = 18;
+    public const int Shooter = 19;
+    public const int StaticViews = 20;
+    public const int Timer = 21;
+    public const int UIElements = 22;
+    public const int View = 23;
 
-    public const int TotalComponents = 22;
+    public const int TotalComponents = 24;
 
     public static readonly string[] componentNames = {
         "BuildCommand",
         "BuildingClick",
         "Building",
+        "ChangeBalance",
         "Collusion",
         "DamageDealer",
         "Demolish",
@@ -48,6 +51,7 @@ public static class GameComponentsLookup {
         "LookAtMovement",
         "Move",
         "NormalClick",
+        "PlayerBalance",
         "Player",
         "Position",
         "Rotation",
@@ -62,6 +66,7 @@ public static class GameComponentsLookup {
         typeof(BuildCommandComponent),
         typeof(BuildingClickComponent),
         typeof(BuildingComponent),
+        typeof(ChangeBalanceComponent),
         typeof(CollusionComponent),
         typeof(DamageDealerComponent),
         typeof(DemolishComponent),
@@ -73,6 +78,7 @@ public static class GameComponentsLookup {
         typeof(LookAtMovementComponent),
         typeof(MoveComponent),
         typeof(NormalClickComponent),
+        typeof(PlayerBalanceComponent),
         typeof(PlayerComponent),
         typeof(PositionComponent),
         typeof(RotationComponent),

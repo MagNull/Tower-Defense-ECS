@@ -66,7 +66,6 @@ public class BuildPanel : MonoBehaviour
         _destroyButton.onClick.AddListener(() =>
         {
             _buildPoint.GetComponentInParent<EntityLink>().LinkedEntity.isDemolish = true;
-            
             gameObject.SetActive(false);
         });
 

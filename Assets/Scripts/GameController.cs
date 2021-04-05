@@ -7,6 +7,7 @@ using Sources.Logic.EnemyLogic;
 using Sources.Logic.GeneralLogic;
 using Sources.Logic.PlayerLogic;
 using Sources.Logic.TowerLogic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,6 +25,8 @@ public class GameController : MonoBehaviour
     [Header("UI Elements")] 
     [SerializeField] private ProgressBarPro _playerHealthSlider;
     [SerializeField] private GameObject _loosePanel;
+    [SerializeField] private TextMeshProUGUI _playerBalanceText;
+    [SerializeField] private TextMeshProUGUI _killCountText;
 
 
     private void Start()
@@ -53,7 +56,10 @@ public class GameController : MonoBehaviour
     {
         _contexts.game.SetGlobals(_globals);
         _contexts.game.SetStaticViews(_enemySpawner, _playerHealth);
-        _contexts.game.SetUIElements(_playerHealthSlider, _loosePanel, _buildPanel);
+        _contexts.game.SetUIElements(
+            _playerHealthSlider, _loosePanel, 
+            _buildPanel, _playerBalanceText, 
+            _killCountText);
     }
     private void DestroyAll()
     {
@@ -94,8 +100,10 @@ public class GameController : MonoBehaviour
                 .Add(new EnemySpawnerInitSystem(_contexts))
                 .Add(new EnemySpawnSystem(_contexts))
                 
-                .Add(new PlayerHealthInitSystem(_contexts))
+                .Add(new PlayerInitSystem(_contexts))
                 .Add(new PlayerHealthViewSystem(_contexts))
+                .Add(new PlayerBalanceSystem(_contexts))
+                .Add(new PlayerBalanceViewSystem(_contexts))
                 .Add(new PlayerLoseSystem(_contexts))
 
                 .Add(new BuildSystem(_contexts))

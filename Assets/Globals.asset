@@ -12,15 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4abab7342f1a41b98f46672bebf7e50c, type: 3}
   m_Name: Globals
   m_EditorClassIdentifier: 
-  IsPaused: 1
+  IsPaused: 0
+  KillCount: 5
   EnemyPrefab: {fileID: 1990356845863549092, guid: 2cd65102153508341b1e6cb431800198, type: 3}
-  EnemySpawnDelay: 1
-  EnemyMovementSpeed: 50
+  EnemySpawnDelay: 0.5
+  EnemyMovementSpeed: 8
   EnemyHealth: 5
-  PlayerHealth: 5
+  PlayerHealth: 10
+  PlayerBalance: 10
   ArcherTower: {fileID: 1059502961608188, guid: 5dc256dae1ca2eb4eb02bc2f8b894a1b, type: 3}
   ArcherTowerConstruct: {fileID: 1184927163056602, guid: 60ed5f340bd584048a8a4de49565ebe0, type: 3}
   CanonTower: {fileID: 1787649280074020, guid: 48a54091141567342bfd0621b9fd5e22, type: 3}
+  ArcherTowerCost: 1
   ArcherShootDistance: 18
   ArcherShootDelay: 1
   ArrowPrefab: {fileID: 2998864752835874638, guid: 45667ab2fa1bf554aacaf43158b851eb, type: 3}

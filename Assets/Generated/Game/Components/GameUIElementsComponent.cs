@@ -12,22 +12,22 @@ public partial class GameContext {
     public UIElementsComponent uIElements { get { return uIElementsEntity.uIElements; } }
     public bool hasUIElements { get { return uIElementsEntity != null; } }
 
-    public GameEntity SetUIElements(ProgressBarPro newPlayerHealthSlider, UnityEngine.GameObject newLoosePanel, BuildPanel newBuildPanel) {
+    public GameEntity SetUIElements(ProgressBarPro newPlayerHealthSlider, UnityEngine.GameObject newLoosePanel, BuildPanel newBuildPanel, TMPro.TextMeshProUGUI newBalanceText, TMPro.TextMeshProUGUI newKillCountText) {
         if (hasUIElements) {
             throw new Entitas.EntitasException("Could not set UIElements!\n" + this + " already has an entity with UIElementsComponent!",
                 "You should check if the context already has a uIElementsEntity before setting it or use context.ReplaceUIElements().");
         }
         var entity = CreateEntity();
-        entity.AddUIElements(newPlayerHealthSlider, newLoosePanel, newBuildPanel);
+        entity.AddUIElements(newPlayerHealthSlider, newLoosePanel, newBuildPanel, newBalanceText, newKillCountText);
         return entity;
     }
 
-    public void ReplaceUIElements(ProgressBarPro newPlayerHealthSlider, UnityEngine.GameObject newLoosePanel, BuildPanel newBuildPanel) {
+    public void ReplaceUIElements(ProgressBarPro newPlayerHealthSlider, UnityEngine.GameObject newLoosePanel, BuildPanel newBuildPanel, TMPro.TextMeshProUGUI newBalanceText, TMPro.TextMeshProUGUI newKillCountText) {
         var entity = uIElementsEntity;
         if (entity == null) {
-            entity = SetUIElements(newPlayerHealthSlider, newLoosePanel, newBuildPanel);
+            entity = SetUIElements(newPlayerHealthSlider, newLoosePanel, newBuildPanel, newBalanceText, newKillCountText);
         } else {
-            entity.ReplaceUIElements(newPlayerHealthSlider, newLoosePanel, newBuildPanel);
+            entity.ReplaceUIElements(newPlayerHealthSlider, newLoosePanel, newBuildPanel, newBalanceText, newKillCountText);
         }
     }
 
@@ -49,21 +49,25 @@ public partial class GameEntity {
     public UIElementsComponent uIElements { get { return (UIElementsComponent)GetComponent(GameComponentsLookup.UIElements); } }
     public bool hasUIElements { get { return HasComponent(GameComponentsLookup.UIElements); } }
 
-    public void AddUIElements(ProgressBarPro newPlayerHealthSlider, UnityEngine.GameObject newLoosePanel, BuildPanel newBuildPanel) {
+    public void AddUIElements(ProgressBarPro newPlayerHealthSlider, UnityEngine.GameObject newLoosePanel, BuildPanel newBuildPanel, TMPro.TextMeshProUGUI newBalanceText, TMPro.TextMeshProUGUI newKillCountText) {
         var index = GameComponentsLookup.UIElements;
         var component = (UIElementsComponent)CreateComponent(index, typeof(UIElementsComponent));
         component.PlayerHealthSlider = newPlayerHealthSlider;
         component.LoosePanel = newLoosePanel;
         component.BuildPanel = newBuildPanel;
+        component.BalanceText = newBalanceText;
+        component.KillCountText = newKillCountText;
         AddComponent(index, component);
     }
 
-    public void ReplaceUIElements(ProgressBarPro newPlayerHealthSlider, UnityEngine.GameObject newLoosePanel, BuildPanel newBuildPanel) {
+    public void ReplaceUIElements(ProgressBarPro newPlayerHealthSlider, UnityEngine.GameObject newLoosePanel, BuildPanel newBuildPanel, TMPro.TextMeshProUGUI newBalanceText, TMPro.TextMeshProUGUI newKillCountText) {
         var index = GameComponentsLookup.UIElements;
         var component = (UIElementsComponent)CreateComponent(index, typeof(UIElementsComponent));
         component.PlayerHealthSlider = newPlayerHealthSlider;
         component.LoosePanel = newLoosePanel;
         component.BuildPanel = newBuildPanel;
+        component.BalanceText = newBalanceText;
+        component.KillCountText = newKillCountText;
         ReplaceComponent(index, component);
     }
 

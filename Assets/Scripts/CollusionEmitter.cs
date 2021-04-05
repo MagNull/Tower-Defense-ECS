@@ -15,7 +15,7 @@ public class CollusionEmitter : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         var entity1 = gameObject.GetComponent<EntityLink>().LinkedEntity;
-        GameEntity entity2 = null;
+        GameEntity entity2 = null;    
         if (other.gameObject.TryGetComponent(out EntityLink link))
         {
             entity2 = link.LinkedEntity;

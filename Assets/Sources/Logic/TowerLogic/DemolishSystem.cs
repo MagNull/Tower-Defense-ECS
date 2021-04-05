@@ -34,6 +34,7 @@ namespace Sources.Logic.TowerLogic
 					e.rotation.Rotation
 				);
 				demolishView.GetComponentInChildren<ParticleSystem>().Play();
+				_contexts.game.CreateEntity().AddChangeBalance(e.building.Cost);
 				e.RemoveShooter();
 				e.ReplaceView(demolishView);
 			
