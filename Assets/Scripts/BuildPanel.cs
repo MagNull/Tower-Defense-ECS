@@ -4,7 +4,8 @@ using UnityEngine.UI;
 
 public class BuildPanel : MonoBehaviour
 {
-    [SerializeField] private Button _archerButton;
+    [SerializeField] private Button _archerTowerButton;
+    [SerializeField] private Button _magicTowerButton;
     [SerializeField] private Button _upgradeButton;
     [SerializeField] private Button _destroyButton;
     private Transform _buildPoint;
@@ -23,13 +24,15 @@ public class BuildPanel : MonoBehaviour
 
             if (component.IsBuilding)
             {
-                _archerButton.gameObject.SetActive(false);
+                _archerTowerButton.gameObject.SetActive(false);
+                _magicTowerButton.gameObject.SetActive(false);
                 _upgradeButton.gameObject.SetActive(true);
                 _destroyButton.gameObject.SetActive(true);
             }
             else
             {
-                _archerButton.gameObject.SetActive(true);
+                _archerTowerButton.gameObject.SetActive(true);
+                _magicTowerButton.gameObject.SetActive(true);
                 _upgradeButton.gameObject.SetActive(false);
                 _destroyButton.gameObject.SetActive(false);
             }
@@ -56,11 +59,17 @@ public class BuildPanel : MonoBehaviour
 
     private void OnEnable()
     {
-        _archerButton.onClick.RemoveAllListeners();
+        _archerTowerButton.onClick.RemoveAllListeners();
+        _magicTowerButton.onClick.RemoveAllListeners();
         _destroyButton.onClick.RemoveAllListeners();
-        _archerButton.onClick.AddListener(() =>
+        _archerTowerButton.onClick.AddListener(() =>
         {
             _contexts.game.CreateEntity().AddBuildCommand(TowerType.ARCHER, _buildPoint);
+            gameObject.SetActive(false);
+        });
+        _magicTowerButton.onClick.AddListener(() =>
+        {
+            _contexts.game.CreateEntity().AddBuildCommand(TowerType.MAGE, _buildPoint);
             gameObject.SetActive(false);
         });
         _destroyButton.onClick.AddListener(() =>

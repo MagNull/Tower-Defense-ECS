@@ -89,18 +89,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4815676203099580}
     m_Modifications:
-    - target: {fileID: 2895878391301032417, guid: 528744614826eb84b9d98c98c2f72d7c, type: 3}
-      propertyPath: ShapeModule.radius.value
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2895878391301032417, guid: 528744614826eb84b9d98c98c2f72d7c, type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2895878391301032417, guid: 528744614826eb84b9d98c98c2f72d7c, type: 3}
-      propertyPath: InitialModule.startSize.minScalar
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 3096206593212327241, guid: 528744614826eb84b9d98c98c2f72d7c, type: 3}
       propertyPath: m_Name
       value: BuildVFX

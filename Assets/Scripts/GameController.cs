@@ -33,6 +33,7 @@ public class GameController : MonoBehaviour
     {
         _contexts = Contexts.sharedInstance;
         _globals.IsPaused = false;
+        _globals.KillCount = 0;
         
         SetUniqueEntities();
 
@@ -49,6 +50,7 @@ public class GameController : MonoBehaviour
         SetUniqueEntities();
         _loosePanel.SetActive(false);
         _globals.IsPaused = false;
+        _globals.KillCount = 0;
         InitSystems();
     }
 
@@ -113,9 +115,11 @@ public class GameController : MonoBehaviour
                 .Add(new LookAtTargetSystem(_contexts))
                 
                 .Add(new ArcherShootSystem(_contexts))
+                .Add(new MageShootSystem(_contexts))
                 
                 .Add(new DamageSystem(_contexts))
                 .Add(new EnemyDieSystem(_contexts))
+                .Add(new ChangeDifficultySystem(_contexts))
                 
                 .Add(new ShowBuildPanelSystem(_contexts))
             

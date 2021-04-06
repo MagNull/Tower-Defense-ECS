@@ -28,12 +28,23 @@ namespace Sources.Logic.TowerLogic
 			foreach (var e in entities) 
 			{
 				GameObject.Destroy(e.view.View);
-				GameObject demolishView = GameObject.Instantiate(
-					_contexts.game.globals.value.ArcherTowerConstruct,
-					e.position.Position,
-					e.rotation.Rotation
-				);
-				demolishView.GetComponentInChildren<ParticleSystem>().Play();
+				GameObject demolishView = null;
+				switch (e.shooter.Type)
+				{
+					case TowerType.ARCHER:
+						demolishView = GameObject.Instantiate(
+							_contexts.game.globals.value.ArcherTowerConstruct,
+							e.position.Position,
+							e.rotation.Rotation);
+						break;
+					case TowerType.MAGE:
+						demolishView = GameObject.Instantiate(
+							_contexts.game.globals.value.MageTowerConstruct,
+							e.position.Position,
+							e.rotation.Rotation);
+						break;
+				}
+				demolishView?.GetComponentInChildren<ParticleSystem>().Play();
 				_contexts.game.CreateEntity().AddChangeBalance(e.building.Cost);
 				e.RemoveShooter();
 				e.ReplaceView(demolishView);

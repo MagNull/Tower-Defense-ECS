@@ -56,29 +56,51 @@ namespace Sources.Logic.TowerLogic
 					e.buildCommand.BuildPlace.gameObject.SetActive(false);
 				}
 				e.isDestroyed = true;
-				
 			}
 		}
 
 		private void BuildTower(GameEntity e, GameObject building, GameEntity buildingEntity)
 		{
 			var globals = _contexts.game.globals.value;
+			GameObject tower;
 			switch (e.buildCommand.TowerType)
 			{
 				case TowerType.ARCHER:
-					GameObject tower = GameObject.Instantiate(
-						_contexts.game.globals.value.ArcherTower,
+					tower = GameObject.Instantiate(
+						globals.ArcherTower,
 						building.transform);
 				
-					buildingEntity.AddShooter(tower.transform.GetChild(0).gameObject, 
+					buildingEntity.AddShooter(
+						tower.transform.GetChild(0).gameObject, 
 						tower.transform.GetChild(0).GetChild(0).GetChild(0),
 						TowerType.ARCHER, 
 						null,
 						globals.ArcherShootDistance,
 						globals.ArcherShootDelay);
 				
-					buildingEntity.AddBuilding(e.buildCommand.TowerType, e.buildCommand.BuildPlace.gameObject,
-						new GameObject("Upgrade(TODO)"), globals.ArcherTowerCost);
+					buildingEntity.AddBuilding(
+						e.buildCommand.TowerType, 
+						e.buildCommand.BuildPlace.gameObject,
+						new GameObject("Upgrade(TODO)"),
+						globals.ArcherTowerCost);
+					break;
+				case TowerType.MAGE:
+					tower = GameObject.Instantiate(
+						globals.MageTower,
+						building.transform);
+
+					buildingEntity.AddShooter(tower.transform.GetChild(0).gameObject,
+						tower.transform.GetChild(1).transform,
+						TowerType.MAGE,
+						null,
+						globals.MageTowerDistance,
+						globals.MageShootDelay);
+					buildingEntity.AddBuilding(
+						e.buildCommand.TowerType,
+						e.buildCommand.BuildPlace.gameObject,
+						new GameObject("Upgrade(TODO)"), 
+						globals.MageTowerCost
+						);
 					break;
 			}
 		}
@@ -88,6 +110,7 @@ namespace Sources.Logic.TowerLogic
 			switch (type)
 			{
 				case TowerType.ARCHER: return _contexts.game.globals.value.ArcherTowerCost;
+				case TowerType.MAGE: return _contexts.game.globals.value.MageTowerCost;
 				default:
 					Debug.Log("Not Cost");
 					return 0;

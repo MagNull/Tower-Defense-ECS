@@ -27,7 +27,7 @@ namespace Sources.Logic.GeneralLogic
 		{
 			foreach (var e in entities) 
 			{
-				if(e.hasView) GameObject.Destroy(e.view.View);
+				if(e.hasView && e.view.View) GameObject.Destroy(e.view.View);
 				e.Destroy();
 			}
 		}

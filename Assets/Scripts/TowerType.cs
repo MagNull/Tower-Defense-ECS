@@ -2,5 +2,5 @@
 {
     ARCHER,
     CANON,
-    CRYSTAL
+    MAGE
 }

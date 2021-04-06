@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class EntityLink : MonoBehaviour
 {
@@ -7,4 +8,5 @@ public class EntityLink : MonoBehaviour
     public GameEntity LinkedEntity => _linkedEntity;
 
     public void Link(GameEntity entity) => _linkedEntity = entity;
+    
 }

@@ -51,7 +51,7 @@ namespace Sources.Logic.TowerLogic
 				                         globals.ArrowSpeed;
 				arrowEntity.AddMove(arrowDirection);
 				arrowEntity.AddRotation(Quaternion.LookRotation(arrowDirection));
-				arrowEntity.AddDamageDealer(1);
+				arrowEntity.AddDamageDealer(globals.ArrowDamage, true);
 			
 				GameObject arrow = GameObject.Instantiate(globals.ArrowPrefab,
 					e.shooter.ShootPoint.position, Quaternion.LookRotation(arrowDirection));

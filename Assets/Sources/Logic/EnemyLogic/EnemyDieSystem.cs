@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Entitas;
+using UnityEngine;
 
 namespace Sources.Logic.EnemyLogic
 {
@@ -28,6 +29,7 @@ namespace Sources.Logic.EnemyLogic
 			{
 				_contexts.game.globals.value.KillCount++;
 				_contexts.game.uIElements.KillCountText.text = _contexts.game.globals.value.KillCount.ToString();
+				_contexts.game.CreateEntity().AddChangeBalance(1);
 				e.isDestroyed = true;
 			}
 		}

@@ -29,6 +29,7 @@ public class PlayerBalanceSystem : ReactiveSystem<GameEntity>
 			int newBalance = _contexts.game.playerEntity.playerBalance.Balance + e.changeBalance.Value;
 			newBalance = Mathf.Clamp(newBalance, 0, int.MaxValue);
 			_contexts.game.playerEntity.ReplacePlayerBalance(newBalance);
+			e.isDestroyed = true;
 		}
 	}
 }

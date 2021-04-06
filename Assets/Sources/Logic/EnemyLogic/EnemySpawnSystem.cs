@@ -28,14 +28,21 @@ namespace Sources.Logic.EnemyLogic
 			foreach (var e in entities)
 			{
 				var globals = _contexts.game.globals.value;
-				e.AddTimer(
-					e.enemySpawner.SpawnDelay, 
-					e.enemySpawner.SpawnDelay,
-					() =>
-					{
-						CreateEnemy(globals, e.enemySpawner);
-					}, true);
+				StartTimer(e, globals);
+				
 			}
+		}
+
+		private void StartTimer(GameEntity e, Globals globals)
+		{
+			CreateEnemy(globals, e.enemySpawner);
+			e.AddTimer(
+				e.enemySpawner.SpawnDelay, 
+				e.enemySpawner.SpawnDelay,
+				() =>
+				{
+					StartTimer(e, globals);
+				}, false);
 		}
 	
 		private void CreateEnemy(Globals globals, EnemySpawnerComponent spawner)
@@ -46,7 +53,7 @@ namespace Sources.Logic.EnemyLogic
 			entity.AddPosition(spawner.SpawnPoint.position);
 			entity.AddRotation(spawner.SpawnPoint.rotation);
 			entity.AddHealth(globals.EnemyHealth);
-			entity.AddDamageDealer(1);
+			entity.AddDamageDealer(1, true);
 		
 			entity.isLookAtMovement = true;
 			entity.isEnemy = true;

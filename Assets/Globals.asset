@@ -13,18 +13,26 @@ MonoBehaviour:
   m_Name: Globals
   m_EditorClassIdentifier: 
   IsPaused: 0
-  KillCount: 5
+  KillCount: 23
   EnemyPrefab: {fileID: 1990356845863549092, guid: 2cd65102153508341b1e6cb431800198, type: 3}
-  EnemySpawnDelay: 0.5
+  EnemySpawnDelay: 3
   EnemyMovementSpeed: 8
   EnemyHealth: 5
+  EnemyDifficultyCoefficient: 0.03
   PlayerHealth: 10
   PlayerBalance: 10
   ArcherTower: {fileID: 1059502961608188, guid: 5dc256dae1ca2eb4eb02bc2f8b894a1b, type: 3}
   ArcherTowerConstruct: {fileID: 1184927163056602, guid: 60ed5f340bd584048a8a4de49565ebe0, type: 3}
-  CanonTower: {fileID: 1787649280074020, guid: 48a54091141567342bfd0621b9fd5e22, type: 3}
+  MageTower: {fileID: 4167592459223198212, guid: 66114e4d5f4e6904d9bae66fee93be91, type: 3}
+  MageTowerConstruct: {fileID: 3892200673973754152, guid: 9cd25bc207f31d8498cefb2b2366e0ea, type: 3}
   ArcherTowerCost: 1
   ArcherShootDistance: 18
   ArcherShootDelay: 1
   ArrowPrefab: {fileID: 2998864752835874638, guid: 45667ab2fa1bf554aacaf43158b851eb, type: 3}
   ArrowSpeed: 40
+  ArrowDamage: 1
+  MageTowerCost: 5
+  MageTowerDistance: 20
+  MageShootDelay: 5
+  MagicBlastPrefab: {fileID: 7595027124893301943, guid: b0255ba98e1af0f4dba7566abb15eb98, type: 3}
+  MagicBlastDamage: 4

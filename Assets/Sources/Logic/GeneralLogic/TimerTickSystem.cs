@@ -1,4 +1,5 @@
-﻿using Entitas;
+﻿using System;
+using Entitas;
 using UnityEngine;
 
 namespace Sources.Logic.GeneralLogic
@@ -14,36 +15,45 @@ namespace Sources.Logic.GeneralLogic
             _timers = _contexts.game.GetGroup(GameMatcher.Timer);
         }
 
-        public void Execute()
+        public void Execute() //TODO: Fix entity.RemoveTimer() (Collection modification error)
         {
             if (!_contexts.game.globals.value.IsPaused)
             {
-                foreach (var entity in _timers)
+                try
                 {
-                    float tick = entity.timer.Tick - Time.deltaTime;
-                    if (tick <= 0)
+                    foreach (var entity in _timers)
                     {
-                        entity.timer.Action.Invoke();
-                        if (entity.timer.IsLoop)
+                        float tick = entity.timer.Tick - Time.deltaTime;
+                        if (tick <= 0)
                         {
-                            entity.ReplaceTimer(entity.timer.StartTick,
-                                entity.timer.StartTick,
-                                entity.timer.Action,
-                                entity.timer.IsLoop);
+                            Action a = entity.timer.Action;
+                            if (entity.timer.IsLoop)
+                            {
+                                entity.ReplaceTimer(entity.timer.StartTick,
+                                    entity.timer.StartTick,
+                                    entity.timer.Action,
+                                    entity.timer.IsLoop);
+                            }
+                            else
+                            {
+                                entity.RemoveTimer();
+                            }
+                            a.Invoke();
                         }
                         else
                         {
-                            entity.RemoveTimer();
+                            entity.ReplaceTimer(entity.timer.StartTick,
+                                tick, 
+                                entity.timer.Action,
+                                entity.timer.IsLoop);
                         }
                     }
-                    else
-                    {
-                        entity.ReplaceTimer(entity.timer.StartTick,
-                            tick, 
-                            entity.timer.Action,
-                            entity.timer.IsLoop);
-                    }
                 }
+                catch 
+                {
+                    
+                }
+                
             }
         }
     }

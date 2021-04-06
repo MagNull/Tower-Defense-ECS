@@ -27,7 +27,7 @@ namespace Sources.Logic.GeneralLogic
 			foreach (var e in entities)
 			{
 				GameEntity damageEntity = e.collusion.CollusionEmitter;
-				if (e.collusion.Other == null)
+				if (e.collusion.Other == null && damageEntity.damageDealer.DestroyAfterDamage)
 				{
 					damageEntity.isDestroyed = true;
 				}
@@ -38,7 +38,7 @@ namespace Sources.Logic.GeneralLogic
 						int newHealth = e.collusion.Other.health.Value 
 						                - damageEntity.damageDealer.Damage;
 						e.collusion.Other.ReplaceHealth(newHealth);
-						damageEntity.isDestroyed = true;
+						if(damageEntity.damageDealer.DestroyAfterDamage)damageEntity.isDestroyed = true;
 					}
 				}
 				e.isDestroyed = true;
